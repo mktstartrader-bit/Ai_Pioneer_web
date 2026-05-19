@@ -80,7 +80,7 @@ Top performers receive the **AI Leadership Award** and become STARTRADER's inaug
 
 - **10 Ai · Pioneer Awards**
 - **2 mo · Enterprise Access**
-- **10 · Assessment Questions** ⚠️ *Stale — assessment is actually 31 questions*
+- **31 · Assessment Questions**
 
 ## "Learn / Think / Build" strip features
 

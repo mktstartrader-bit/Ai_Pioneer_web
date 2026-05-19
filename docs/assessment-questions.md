@@ -5,10 +5,8 @@ The application form includes a 31-question assessment across three sections. Mu
 Source of truth: `const QUESTIONS` in `index.html` (currently lines 1421–1485).
 
 - **Total questions:** 31
-- **MC questions:** 28
-- **Open-ended:** 3 (Q22, Q25, Q27, Q30 → wait, see actual count below)
-
-Counting from the data: open-ended are Q22, Q25, Q27, Q30 → 4 open-ended; the remaining 27 are MC.
+- **Multiple-choice:** 27
+- **Open-ended:** 4 (Q22, Q25, Q27, Q30 — each accepts up to 2,000 characters)
 
 | Section | Title | Q range | Count |
 |---|---|---|---|

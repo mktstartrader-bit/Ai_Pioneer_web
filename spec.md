@@ -30,7 +30,7 @@
 - **CTA**: Apply to the Program（滚动至表单）
 - **三栏数据展示**:
   - 2 mo — Enterprise AI Access
-  - 30 — Assessment Questions
+  - 31 — Assessment Questions
   - 1 — AI Leadership Award
 
 ### 2.2 Who we're looking for（Pillars）
@@ -75,20 +75,20 @@
 ### 2.7 Application Form（报名表单）
 核心功能区，包含：
 - 用户信息采集
-- 30 题 AI 评估问卷
+- 31 题 AI 评估问卷
 - 进度追踪与提交
 
 ---
 
-## 3. 问卷设计（30 题）
+## 3. 问卷设计（31 题）
 
-问卷分为 **3 个 Section**，总计 30 题，预计耗时 30–40 分钟：
+问卷分为 **3 个 Section**，总计 31 题，预计耗时 30–40 分钟：
 
 | Section | 主题 | 题数 | 题型 |
 |---------|------|------|------|
 | SECTION 1 | AI Fundamentals | 10 题 | 单选题 |
 | SECTION 2 | AI Application & Business Thinking | 10 题 | 单选题 |
-| SECTION 3 | Learning Motivation & Growth Potential | 10 题 | 单选题 + 开放题 |
+| SECTION 3 | Learning Motivation & Growth Potential | 11 题 | 单选题 + 开放题 |
 
 ### 题型说明
 - **MC（单选题）**: A/B/C/D 四选一（部分题目含 E/F 选项）
@@ -114,7 +114,7 @@ CREATE TABLE public.applications (
   name TEXT NOT NULL,           -- 申请人姓名
   phone TEXT NOT NULL,          -- 联系电话
   company_email TEXT NOT NULL,  -- 公司邮箱
-  answers JSONB NOT NULL DEFAULT '{}'::jsonb,  -- 30 题答案
+  answers JSONB NOT NULL DEFAULT '{}'::jsonb,  -- 31 题答案
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 ```
@@ -163,7 +163,7 @@ CREATE TABLE public.applications (
 - **验证逻辑**:
   - 姓名、电话、公司邮箱必填（Zod 校验）
   - 公司邮箱需为有效 email 格式
-  - 30 题全部回答后方可提交
+  - 31 题全部回答后方可提交
   - 未答完题目自动 scroll 到第一题位置
 - **提交行为**:
   - 数据写入 Supabase `applications` 表
@@ -218,7 +218,7 @@ Twitter:     summary card
 | `src/routes/index.tsx` | 首页组件（完整 Landing + Form） |
 | `src/routes/__root.tsx` | 根布局（SEO meta + QueryClientProvider + Sonner Toaster） |
 | `src/router.tsx` | TanStack Router 配置 |
-| `src/data/questions.ts` | 30 题问卷数据定义 |
+| `src/data/questions.ts` | 31 题问卷数据定义 |
 | `src/styles.css` | Tailwind CSS v4 主题变量与设计系统 |
 
 ### 数据库文件
@@ -232,7 +232,7 @@ Twitter:     summary card
 ## 10. 后续扩展建议
 
 1. **管理后台**: 新增 `/admin` 路由，使用 `requireSupabaseAuth` 中间件保护，展示所有申请数据表格
-2. **答案评分**: 对 26 道 MC 题自动评分，开放题人工评审
+2. **答案评分**: 对 27 道 MC 题自动评分，开放题人工评审
 3. **邮件通知**: 入选/落选自动发送邮件通知（使用公司邮箱）
 4. **多语言支持**: 当前为全英文，可扩展中文版本
 5. **导出功能**: 管理后台支持 CSV 导出申请数据

@@ -130,10 +130,3 @@ Triggered from validation errors and the "submit before complete" guard.
 - No multi-device sync.
 - No analytics events.
 
-## Known content inconsistency
-
-`QUESTIONS.length === 31`, but:
-- The hero callout says "10 Assessment Questions"
-- The project `README.md` says "30-question assessment"
-
-These should be reconciled to "31" (or the question bank trimmed to match the marketing copy) before launch.

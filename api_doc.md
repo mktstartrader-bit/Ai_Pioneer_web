@@ -1,6 +1,7 @@
 # 问卷记录 API 文档
 
-**Base URL：** `/questionnaire`  
+**Base URL：** `/questionnaire`
+**生产环境 URL（Production）：** `https://promo.powerbystar.com/partner/questionnaire`
 **Content-Type：** `application/json`
 
 ---
@@ -73,8 +74,8 @@
 
 ```json
 {
-  "code": 200,
-  "message": "success",
+  "code": "0000",
+  "message": "操作成功",
   "data": null
 }
 ```
@@ -125,8 +126,8 @@
 
 ```json
 {
-  "code": 200,
-  "message": "success",
+  "code": "0000",
+  "message": "操作成功",
   "data": [
     {
       "id": 1,
@@ -178,6 +179,6 @@
 
 | 字段 | 类型 | 说明 |
 |---|---|---|
-| code | Integer | 状态码，`200` 表示成功 |
-| message | String | 提示信息 |
+| code | String | 状态码，`"0000"` 表示成功（已在生产验证）。前端兼容处理 `200`、`"200"`、`"0000"` 三种值。 |
+| message | String | 提示信息（成功时为 `"操作成功"`） |
 | data | Object/Array/null | 响应数据 |

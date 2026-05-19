@@ -1,18 +1,18 @@
 # Assessment Questions
 
-The application form includes a 31-question assessment across three sections. The user navigates with the "Next Question" button — clicking an option selects it but does not advance. Open-ended questions accept up to 2,000 characters.
+The application form includes a 32-question assessment across three sections. The user navigates with the "Next Question" button — clicking an option selects it but does not advance. Open-ended questions accept up to 2,000 characters.
 
-Source of truth: `const QUESTIONS` in `index.html` (currently lines 1421–1485).
+Source of truth: `const QUESTIONS` in `index.html`.
 
-- **Total questions:** 31
-- **Multiple-choice:** 27
+- **Total questions:** 32
+- **Multiple-choice:** 28
 - **Open-ended:** 4 (Q22, Q25, Q27, Q30 — each accepts up to 2,000 characters)
 
 | Section | Title | Q range | Count |
 |---|---|---|---|
 | 1 | AI Fundamentals | Q1–Q10 | 10 MC |
 | 2 | AI Application & Business Thinking | Q11–Q20 | 10 MC |
-| 3 | Learning Motivation & Growth Potential | Q21–Q31 | 7 MC + 4 open |
+| 3 | Learning Motivation & Growth Potential | Q21–Q32 | 8 MC + 4 open |
 
 ---
 
@@ -194,3 +194,9 @@ Source of truth: `const QUESTIONS` in `index.html` (currently lines 1421–1485)
 - A. ChatGPT
 - B. Claude
 - C. Both — I'd like access to ChatGPT and Claude
+
+**Q32.** Which of these can I use to automate sending personal emails to each of my leads, using my Excel sheet contacts, and using today's news as a reason to open a live account now?
+- A. ChatGPT
+- B. Claude
+- C. OpenClaw
+- D. Any of the above, and more

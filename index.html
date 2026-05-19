@@ -1129,9 +1129,9 @@ section{position:relative;overflow:hidden}
         </svg>
       </div>
 
-      <!-- Bottom-right callout with line: 31 Assessment Questions (line goes left-then-up) -->
+      <!-- Bottom-right callout with line: 32 Assessment Questions (line goes left-then-up) -->
       <div class="callout callout-br" aria-hidden="true">
-        <div class="num">31</div>
+        <div class="num">32</div>
         <div class="lab">Assessment Questions</div>
         <svg class="callout-line" viewBox="0 0 120 60" preserveAspectRatio="none">
           <path d="M 2 8 L 60 60 L 120 60" />
@@ -1334,7 +1334,7 @@ section{position:relative;overflow:hidden}
   <div class="container">
     <div class="form-shell" id="formShell">
       <h2>Apply to the Program</h2>
-      <p class="desc">Fill in your details and complete the 31-question AI assessment.</p>
+      <p class="desc">Fill in your details and complete the 32-question AI assessment.</p>
 
       <!-- Step 1: personal info -->
       <div class="info-card" id="infoCard">
@@ -1360,7 +1360,7 @@ section{position:relative;overflow:hidden}
       <div id="assessShell" style="display:none"></div>
 
       <div class="submit-row" id="submitRow" style="display:none">
-        <button type="button" class="btn-submit" id="submitBtn" disabled>Answer 31 questions to submit</button>
+        <button type="button" class="btn-submit" id="submitBtn" disabled>Answer 32 questions to submit</button>
       </div>
     </div>
 
@@ -1409,7 +1409,7 @@ const OFFER = [
 ];
 
 const JOURNEY = [
-  { n:1, t:"Application & Assessment",    d:"Complete the 31-question AI assessment and submit your application." },
+  { n:1, t:"Application & Assessment",    d:"Complete the 32-question AI assessment and submit your application." },
   { n:2, t:"Selected Candidates",          d:"The judging panel reviews all submissions and selects participants." },
   { n:3, t:"AI Account Access Granted",    d:"Selected candidates receive access to enterprise AI accounts." },
   { n:4, t:"2-Month Exploration Phase",    d:"Explore, experiment, and build real AI workflows in your daily work." },
@@ -1482,6 +1482,8 @@ const QUESTIONS = [
   { id:30, section:3, type:"open", text:"Why would you like to join the STARTRADER AI Pioneer Program?", maxLength:2000 },
   { id:31, section:3, type:"mc", text:"Which AI tool would you prefer to use during the program?",
     options:[["A","ChatGPT"],["B","Claude"],["C","Both — I'd like access to ChatGPT and Claude"]] },
+  { id:32, section:3, type:"mc", text:"Which of these can I use to automate sending personal emails to each of my leads, using my Excel sheet contacts, and using today's news as a reason to open a live account now?",
+    options:[["A","ChatGPT"],["B","Claude"],["C","OpenClaw"],["D","Any of the above, and more"]] },
 ];
 
 const SECTION_TITLES = {
@@ -1770,7 +1772,7 @@ submitBtn.addEventListener("click", ()=>{
       renderAssessment();
       setTimeout(()=> document.getElementById("assessCard").scrollIntoView({behavior:"smooth",block:"start"}), 30);
     }
-    toast("Please answer all 31 questions before submitting.");
+    toast(`Please answer all ${total} questions before submitting.`);
     return;
   }
   if (state.submitting) return;

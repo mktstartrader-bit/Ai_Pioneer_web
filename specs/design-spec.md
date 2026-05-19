@@ -38,7 +38,7 @@ Three floating absolute-positioned chips overlaid on the model photo:
 |---|---|---|---|
 | Top-right (`.callout-tr`) | `10 Ai` | Pioneer Awards | none |
 | Middle-left (`.callout-ml`) | `2 mo` | Enterprise Access | line goes right then up |
-| Bottom-right (`.callout-br`) | `31` | Assessment Questions | line goes left then up |
+| Bottom-right (`.callout-br`) | `32` | Assessment Questions | line goes left then up |
 
 ## Countdown strip (bottom of hero)
 

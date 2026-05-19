@@ -18,7 +18,7 @@ A 2-month enterprise AI sandbox for STARTRADER's most curious minds — top perf
 4. **Journey** — *7 Steps. Curious to Champion.*
 5. **Judges** — *Reviewed by the Best.* (Peter Karsten + 4 criteria)
 6. **Awards** — AI Leadership Award
-7. **Application Form** — Two-step (details → 31-question assessment)
+7. **Application Form** — Two-step (details → 32-question assessment)
 8. **Footer**
 
 ## The 6 Pillars (Who We Select)
@@ -45,7 +45,7 @@ Feature card: **2 months · Enterprise AI access, fully sponsored.** Use the too
 
 ## The 7-Step Journey
 
-1. **Application & Assessment** — Complete the 31-question AI assessment and submit your application.
+1. **Application & Assessment** — Complete the 32-question AI assessment and submit your application.
 2. **Selected Candidates** — The judging panel reviews all submissions and selects participants.
 3. **AI Account Access Granted** — Selected candidates receive access to enterprise AI accounts.
 4. **2-Month Exploration Phase** — Explore, experiment, and build real AI workflows in your daily work.
@@ -80,7 +80,7 @@ Top performers receive the **AI Leadership Award** and become STARTRADER's inaug
 
 - **10 Ai · Pioneer Awards**
 - **2 mo · Enterprise Access**
-- **31 · Assessment Questions**
+- **32 · Assessment Questions**
 
 ## "Learn / Think / Build" strip features
 

@@ -39,22 +39,22 @@ On success:
 
 ## Step 2 — Assessment
 
-31 questions across 3 sections (see [`../docs/assessment-questions.md`](../docs/assessment-questions.md)).
+32 questions across 3 sections (see [`../docs/assessment-questions.md`](../docs/assessment-questions.md)).
 
 ### Per-question card
 
 Header line shows:
 - Left: `Section {n} of 3` + section title
-- Right: `Question {indexInSection} of {sectionTotal} · Q{id} / 31`
+- Right: `Question {indexInSection} of {sectionTotal} · Q{id} / 32`
 
 ### Multiple-choice (`type: "mc"`)
 
-- Four lettered options (A/B/C/D) — Q31 has only A/B/C.
+- Four lettered options (A/B/C/D) — Q31 is the only 3-option question (A/B/C).
 - Selecting an option:
   1. Writes the letter into `state.answers[q.id]`
   2. Calls `updateProgress()`
   3. Re-renders the current question in place so the clicked option gets `.is-selected` and the "Next Question" button becomes enabled.
-- Selecting an option does **not** advance — the user must click "Next Question" (or "Submit Application" on Q31) to move on. Re-clicking a different option simply changes the selection.
+- Selecting an option does **not** advance — the user must click "Next Question" (or "Submit Application" on Q32) to move on. Re-clicking a different option simply changes the selection.
 
 ### Open-ended (`type: "open"`)
 
@@ -85,13 +85,13 @@ States, based on `answeredCount() === QUESTIONS.length`:
 
 | State | Disabled | Label |
 |---|---|---|
-| Some unanswered (`n < 31`) | yes | `Answer {31 - n} more question{s} to submit` |
-| All answered | no | `Submit Application` |
+| Some unanswered (`n < 32`) | yes | `Answer {32 - n} more question{s} to submit` |
+| All answered (`n === 32`) | no | `Submit Application` |
 | Submitting | yes | `Submitting…` |
 
 ### On submit click
 
-1. If `answeredCount() < total`: jump to the first unanswered question, scroll to it, show toast `"Please answer all 31 questions before submitting."` and abort.
+1. If `answeredCount() < total`: jump to the first unanswered question, scroll to it, show toast `"Please answer all 32 questions before submitting."` and abort.
 2. Set `state.submitting = true`, disable button, label "Submitting…".
 3. Build payload:
    ```json

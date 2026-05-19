@@ -93,13 +93,15 @@ section{position:relative;overflow:hidden}
 /* NAV */
 .topbar{
   position:absolute;top:0;left:0;right:0;z-index:30;
-  padding:1.25rem 1.5rem;
+  padding:1rem 1.25rem;
 }
+@media(min-width:768px){.topbar{padding:1.25rem 1.5rem}}
 .topbar-inner{
   max-width:1280px;margin-inline:auto;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
-.topbar img{height:60px;width:auto;filter:drop-shadow(0 0 22px rgba(22,233,215,.4))}
+.topbar img{height:48px;width:auto;filter:drop-shadow(0 0 22px rgba(22,233,215,.4))}
+@media(min-width:480px){.topbar img{height:60px}}
 @media(min-width:768px){.topbar img{height:88px}}
 @media(min-width:1280px){.topbar img{height:100px}}
 .nav-cta{
@@ -165,8 +167,11 @@ section{position:relative;overflow:hidden}
   max-width:1440px;
   width:100%;
   margin:0 auto;
-  padding:7rem 1.5rem 17rem;  /* bottom padding leaves room for strip */
+  padding:6rem 1.25rem 19rem;  /* bottom padding leaves room for strip */
   align-items:center;
+}
+@media(min-width:520px){
+  .hero-stage{padding:7rem 1.5rem 17rem}
 }
 @media(min-width:980px){
   .hero-stage{
@@ -318,31 +323,41 @@ section{position:relative;overflow:hidden}
 }
 @media(max-width:979px){
   .hero-watermark{display:none}
-  .callout{position:absolute}
-  .callout-tr{top:4%;right:4%}
-  .callout-ml{top:auto;left:4%;bottom:8%}
+  .callout{position:absolute;max-width:42%}
+  .callout-tr{top:3%;right:3%}
+  .callout-ml{top:auto;left:3%;bottom:6%}
   .callout-ml .callout-line{display:none}
-  .callout-br{top:auto;right:4%;bottom:8%}
+  .callout-br{top:auto;right:3%;bottom:6%}
   .callout-br .callout-line{display:none}
   .callout .num{font-size:1.4rem}
   .callout .lab{font-size:.7rem}
+}
+@media(max-width:480px){
+  .callout .num{font-size:1.15rem}
+  .callout .lab{font-size:.62rem;letter-spacing:0}
+  .callout-tr{top:2%;right:2%}
+  .callout-ml{left:2%;bottom:4%}
+  .callout-br{right:2%;bottom:4%}
 }
 
 /* BOTTOM glass strip (countdown + features) */
 .hero-strip{
   position:absolute;
-  left:1.5rem;right:1.5rem;bottom:1.5rem;
+  left:1rem;right:1rem;bottom:1rem;
   z-index:7;
   display:grid;
   grid-template-columns:1fr;
-  gap:1.25rem;
-  padding:1.25rem 1.5rem;
-  border-radius:1.25rem;
+  gap:1rem;
+  padding:1rem 1.1rem;
+  border-radius:1.1rem;
   background:rgba(8,8,40,.55);
   border:1px solid rgba(120,170,255,.18);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
   box-shadow:0 24px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
+}
+@media(min-width:520px){
+  .hero-strip{left:1.5rem;right:1.5rem;bottom:1.5rem;gap:1.25rem;padding:1.25rem 1.5rem;border-radius:1.25rem}
 }
 @media(min-width:780px){
   .hero-strip{
@@ -381,11 +396,15 @@ section{position:relative;overflow:hidden}
   color:rgba(218,227,237,.6);
   font-size:.7rem;
   letter-spacing:.06em;
-  text-align:right;
+  text-align:center;
   margin-bottom:.85rem;
 }
 .strip-features{
-  display:flex;gap:1.5rem;align-items:flex-start;justify-content:flex-end;flex-wrap:wrap;
+  display:flex;gap:1.25rem;align-items:flex-start;justify-content:center;flex-wrap:wrap;
+}
+@media(min-width:780px){
+  .strip-deadline{text-align:right}
+  .strip-features{gap:1.5rem;justify-content:flex-end}
 }
 .feat{
   display:flex;align-items:center;gap:.6rem;
@@ -755,6 +774,8 @@ section{position:relative;overflow:hidden}
   box-shadow:0 12px 32px rgba(0,0,0,.45);
   z-index:5;
   white-space:nowrap;
+  max-width:calc(100% - 1rem);
+  text-align:center;
 }
 .judge-nameplate .name{
   color:#3B7BFF;
@@ -771,7 +792,29 @@ section{position:relative;overflow:hidden}
   margin-top:.25rem;
 }
 @media(max-width:979px){
-  .judge-nameplate{position:static;margin:1.25rem auto 0}
+  .judge-nameplate{
+    left:.5rem;
+    right:auto;
+    bottom:.75rem;
+    white-space:normal;
+    padding:.7rem 1.25rem;
+    max-width:calc(100% - 1rem);
+    border-radius:1.25rem;
+  }
+  .judge-nameplate .name{font-size:1rem}
+  .judge-nameplate .role{font-size:.58rem;letter-spacing:.16em;margin-top:.2rem}
+}
+@media(max-width:480px){
+  .judge-nameplate{
+    left:.5rem;
+    right:auto;
+    padding:.6rem 1rem;
+    max-width:calc(100% - 1rem);
+    align-items:flex-start;
+    text-align:left;
+  }
+  .judge-nameplate .name{font-size:.95rem}
+  .judge-nameplate .role{font-size:.55rem;letter-spacing:.14em}
 }
 
 /* AWARDS */
@@ -856,6 +899,7 @@ section{position:relative;overflow:hidden}
 .info-card h3{margin:0 0 1rem;font-size:1.15rem;font-weight:800;color:var(--ink)}
 .field{margin-bottom:1rem}
 .field label{display:block;font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;letter-spacing:.01em}
+.field label .hint{font-weight:500;color:rgba(28,31,42,.6);font-size:.72rem;letter-spacing:0;margin-left:.25rem}
 .field input{
   width:100%;font-family:inherit;font-size:.95rem;
   padding:.7rem .9rem;border-radius:.6rem;
@@ -1304,7 +1348,7 @@ section{position:relative;overflow:hidden}
           <input id="fPhone" type="tel" placeholder="+971 50 000 0000" autocomplete="tel" />
         </div>
         <div class="field">
-          <label for="fEmail">Company email</label>
+          <label for="fEmail">Company email <span class="hint">(@startrader.com or @starprime.com only)</span></label>
           <input id="fEmail" type="email" placeholder="name@startrader.com" autocomplete="email" />
         </div>
         <div class="btn-row">
@@ -1599,6 +1643,8 @@ document.getElementById("continueBtn").addEventListener("click", ()=>{
   if (phone.length < 6) { toast("Please enter a valid phone number."); return; }
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRe.test(email)) { toast("Please enter a valid company email address."); return; }
+  const allowedDomain = /@(startrader|starprime)\.com$/i;
+  if (!allowedDomain.test(email)) { toast("Only @startrader.com or @starprime.com emails are allowed."); return; }
 
   state.name = name; state.phone = phone; state.email = email;
   state.detailsSubmitted = true;
@@ -1630,7 +1676,7 @@ function renderAssessment(){
           <span class="sn">Section ${q.section} of 3</span>
           <span class="st">${sectionTitle}</span>
         </div>
-        <span class="count">Question ${indexInSection} of ${sectionQs.length} · Q${q.id} / 30</span>
+        <span class="count">Question ${indexInSection} of ${sectionQs.length} · Q${q.id} / ${QUESTIONS.length}</span>
       </div>
       <div class="q-card" id="qCard"></div>
       <div class="nav-row">

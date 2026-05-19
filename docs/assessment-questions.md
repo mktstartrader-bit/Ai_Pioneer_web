@@ -1,6 +1,6 @@
 # Assessment Questions
 
-The application form includes a 31-question assessment across three sections. Multiple-choice questions auto-advance; open-ended questions accept up to 2,000 characters.
+The application form includes a 31-question assessment across three sections. The user navigates with the "Next Question" button — clicking an option selects it but does not advance. Open-ended questions accept up to 2,000 characters.
 
 Source of truth: `const QUESTIONS` in `index.html` (currently lines 1421–1485).
 

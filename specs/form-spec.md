@@ -53,14 +53,15 @@ Header line shows:
 - Selecting an option:
   1. Writes the letter into `state.answers[q.id]`
   2. Calls `updateProgress()`
-  3. **Auto-advances** to the next question (smooth scroll). On the last question, re-renders in place.
+  3. Re-renders the current question in place so the clicked option gets `.is-selected` and the "Next Question" button becomes enabled.
+- Selecting an option does **not** advance — the user must click "Next Question" (or "Submit Application" on Q31) to move on. Re-clicking a different option simply changes the selection.
 
 ### Open-ended (`type: "open"`)
 
 - Single `<textarea>` with `maxlength` of `q.maxLength` (defaults to 2000).
 - Character counter below: `{n} / {max}`. The `.warn` class is applied when `n > max * 0.9`.
 - "Next Question →" button stays disabled until the field has non-whitespace content.
-- No auto-advance — user must click Next.
+- Advance only via the Next button — same as MC.
 
 ### Navigation
 

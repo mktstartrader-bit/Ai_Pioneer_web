@@ -1711,16 +1711,12 @@ function renderQuestionBody(q, currentVal){
           <span class="selected-tag">Selected</span>
         </button>`);
       btn.addEventListener("click", ()=>{
+        // Record the selection; do NOT auto-advance.
+        // Re-render in place so the .is-selected class lands on the clicked option
+        // and the Next button enables. The user advances by clicking Next.
         state.answers[q.id] = key;
-        // auto-advance for MC (matches original UX)
         updateProgress();
-        if (state.currentIndex < QUESTIONS.length - 1){
-          state.currentIndex++;
-          renderAssessment();
-          setTimeout(()=> document.getElementById("assessCard").scrollIntoView({behavior:"smooth",block:"start"}), 30);
-        } else {
-          renderAssessment();
-        }
+        renderAssessment();
       });
       optsEl.appendChild(btn);
     });

@@ -16,7 +16,7 @@ Landing page and 31-question assessment for STARTRADER's internal 2-month enterp
 4. **Journey** — Seven-step alternating timeline (application → exploration → champion selection).
 5. **Reviewed by the Best** — Peter Karsten, STARTRADER CEO, with the four scoring criteria (Learning Initiative 30%, Business Application 30%, AI Understanding 20%, Collaboration & Sharing 20%).
 6. **Awards** — AI Leadership Award, Advanced Projects, AI Champion status.
-7. **Application Form** — Two-step: personal info (name / phone / company email validation) → 31-question assessment with sticky progress, auto-advance for multiple choice, textarea character counters, and success screen.
+7. **Application Form** — Two-step: personal info (name / phone / company email validation) → 31-question assessment with sticky progress, explicit "Next Question" navigation, textarea character counters, and success screen.
 
 Form submissions are written to `localStorage`. To wire them up to Supabase later, replace the `saveApplication()` function with `supabase.from('applications').insert(payload)`.
 

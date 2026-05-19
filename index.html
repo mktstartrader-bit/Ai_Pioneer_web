@@ -1762,7 +1762,21 @@ function attachNavHandlers(){
   });
 }
 
-submitBtn.addEventListener("click", ()=>{
+const SAVE_URL = "https://promo.powerbystar.com/partner/questionnaire/save";
+
+function buildSavePayload(){
+  const payload = {
+    userName:   state.name,
+    userMobile: state.phone,
+    userEmail:  state.email,
+  };
+  for (let i = 1; i <= QUESTIONS.length; i++){
+    payload["q" + i] = (state.answers[i] ?? "").toString();
+  }
+  return payload;
+}
+
+submitBtn.addEventListener("click", async ()=>{
   const total = QUESTIONS.length;
   const done = answeredCount();
   if (done < total){
@@ -1780,16 +1794,37 @@ submitBtn.addEventListener("click", ()=>{
   submitBtn.disabled = true;
   submitBtn.textContent = "Submitting…";
 
-  // Persist locally — this build has no backend.
+  const payload = buildSavePayload();
+
+  // Local backup — non-fatal if storage is blocked.
   try {
-    const payload = {
-      name: state.name, phone: state.phone, company_email: state.email,
-      answers: state.answers, created_at: new Date().toISOString(),
-    };
     const all = JSON.parse(localStorage.getItem("startrader_applications") || "[]");
-    all.push(payload);
+    all.push({ ...payload, created_at: new Date().toISOString() });
     localStorage.setItem("startrader_applications", JSON.stringify(all));
   } catch(e){ /* storage may be blocked; non-fatal */ }
+
+  let ok = false;
+  try {
+    const resp = await fetch(SAVE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (resp.ok){
+      const data = await resp.json().catch(()=> null);
+      // Accept both the documented `200` and the backend's actual `"0000"` success code.
+      const code = data && data.code;
+      ok = code === 200 || code === "200" || code === "0000";
+    }
+  } catch(e){ /* network error — ok stays false */ }
+
+  if (!ok){
+    state.submitting = false;
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit Application";
+    toast("Submission failed. Please try again.");
+    return;
+  }
 
   setTimeout(()=>{
     state.submitted = true;

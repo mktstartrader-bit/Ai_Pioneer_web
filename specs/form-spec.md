@@ -93,18 +93,19 @@ States, based on `answeredCount() === QUESTIONS.length`:
 
 1. If `answeredCount() < total`: jump to the first unanswered question, scroll to it, show toast `"Please answer all 32 questions before submitting."` and abort.
 2. Set `state.submitting = true`, disable button, label "Submitting…".
-3. Build payload:
+3. Build payload (flat shape per [`../api_doc.md`](../api_doc.md)):
    ```json
    {
-     "name": "...",
-     "phone": "...",
-     "company_email": "...",
-     "answers": { ... },
-     "created_at": "2026-05-19T..."
+     "userName": "...",
+     "userMobile": "...",
+     "userEmail": "...",
+     "q1": "A", "q2": "B", "...": "...", "q32": "D"
    }
    ```
-4. Push to `localStorage` key `startrader_applications` (array of all submissions). Failures are swallowed (storage may be blocked).
-5. After 700ms: hide `#formShell` and `#progressBar`, show `#successScreen`, scroll it into view.
+4. Append `{...payload, created_at}` to `localStorage` key `startrader_applications` as a local backup. Failures are swallowed (storage may be blocked).
+5. `POST` the payload to `https://promo.powerbystar.com/partner/questionnaire/save` with `Content-Type: application/json`. Treated as success only when `resp.ok && resp.json().code === 200`.
+6. **On failure** (network error / non-2xx / `code !== 200`): re-enable the button as "Submit Application", clear `state.submitting`, and show toast `"Submission failed. Please try again."`. The user can re-click to retry.
+7. **On success**: after 700ms hide `#formShell` and `#progressBar`, show `#successScreen`, scroll it into view.
 
 ## Success state
 
@@ -125,7 +126,6 @@ Triggered from validation errors and the "submit before complete" guard.
 
 ## Currently *not* implemented
 
-- No server-side submission — see [`../docs/deployment.md`](../docs/deployment.md) for the suggested Supabase wiring.
 - No reCAPTCHA / bot protection.
 - No resume-where-you-left-off across reloads (state is in-memory only; only the final payload is persisted to localStorage on submit).
 - No multi-device sync.
